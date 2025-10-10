@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 # 五组实验数据 (TPS, Latency)
 data = {
-    "Baseline(f=0, b=0, c=0)": [
+    "baseline(c=b=0)": [
         (132,3.035),(220,2.43),(255,2.558),(280,2.405),(290,2.596),(286,3.127),(312,2.613),(307,3.162),
         (309,3.032),(321,2.995),(315,3.003),(321,3.051),(312,3.388),(316,3.322),(319,3.266),(315,3.298),
         (311,3.854),(315,2.859),(310,3.445),(306,3.565),(299,3.95),(306,3.687),(305,3.326),(296,3.933),
@@ -17,6 +17,12 @@ data = {
     "DEY-EDG2(f=33, b=33, c=33(c1=16, c2=17))": [
         (129,3.096),(207,2.7),(222,2.954),(237,3.336),(257,3.115),(239,4.214),(252,4.026),(261,3.093),
         (259,3.322),(267,3.309),(273,3.082),(249,4.89)
+    ],
+    "DEY-EDG2(f=34, b=34, c=34)": [
+        (101,3.949),(163,3.769),(202,3.471)
+    ],
+    "DEY-EDG2(f=34, b=33, c=34(c1=16, c2=17))": [
+        (132,3.009),(185,3.054),(198,3.634)
     ]
 }
 
@@ -40,13 +46,8 @@ axes[1].set_ylabel("Latency (s)")
 axes[0].set_xlabel("Block Height (sequential index)")  # 上图也加横轴
 axes[1].set_xlabel("Block Height (sequential index)")  # 下图保持
 
-axes[0].tick_params(labelbottom=True)
-
-
-axes[0].legend(loc="lower right", fontsize=8, markerscale=0.8, frameon=True)
-axes[1].legend(loc="lower right", fontsize=8, markerscale=0.8, frameon=True)
-# axes[0].legend()
-  # axes[0].set_title("TPS and Latency vs Blockheight for different DEY-EDG experiments")
+axes[0].legend()
+axes[0].set_title("TPS and Latency vs Blockheight for different DEY-EDG experiments")
 
 plt.tight_layout()
 plt.savefig("deg_edg.png")
